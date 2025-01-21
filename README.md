@@ -87,6 +87,9 @@ function gitHereWeGo() {
 #print_phrase
 #print_face
 
+alias githerewego='gitHereWeGo'
+alias gitgo='gitHereWeGo'
+
 ```
 
 
