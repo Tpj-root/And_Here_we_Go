@@ -1,8 +1,29 @@
+# check if figlet is installed, and if not, attempt to install it
+check_and_install_figlet() {
+    # Check if figlet is installed
+    if ! command -v figlet &> /dev/null; then
+        echo "figlet is not installed. Attempting to install..."
+        
+        # Try installing figlet
+        if sudo apt update && sudo apt install -y figlet; then
+            echo "figlet has been successfully installed."
+        else
+            echo "Failed to install figlet. Please install it manually."
+        fi
+    #else
+        #echo "figlet is already installed."
+    fi
+}
+
 print_phrase() {
+    # Call the function
+    check_and_install_figlet
+    # phrase
     figlet "And Here We Go"
 }
 
 print_face() {
+
 
     # Define an array of colors
     COLORS=("\e[31m" "\e[32m" "\e[33m" "\e[34m" "\e[35m" "\e[36m")
