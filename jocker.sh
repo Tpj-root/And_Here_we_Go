@@ -85,7 +85,7 @@ function gitHereWeGo() {
         echo "Changes detected. Adding, committing, and pushing."
         git add . && git commit -m "And Here We Go" && git push || { echo "Failed to complete git operations."; return 1; }
         print_face
-        print_phrase
+        #print_phrase
     fi
 }
 
