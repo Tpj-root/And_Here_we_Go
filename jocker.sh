@@ -1,3 +1,17 @@
+
+
+#function gitgo() V2.0
+# https://github.com/Tpj-root/And_Here_we_Go.git
+# move to bin
+# sudo cp jocker.sh /usr/local/bin/
+# sudo chmod +x /usr/local/bin/jocker.sh
+# then uncomment the last three lines
+#
+#source /usr/local/bin/jocker.sh
+#alias githerewego='gitHereWeGo'
+#alias gitgo='gitHereWeGo'
+###########################
+
 # check if figlet is installed, and if not, attempt to install it
 check_and_install_figlet() {
     # Check if figlet is installed
@@ -16,11 +30,20 @@ check_and_install_figlet() {
 }
 
 print_phrase() {
+    # Define an array of colors
+    COLORS=("\e[31m" "\e[32m" "\e[33m" "\e[34m" "\e[35m" "\e[36m")
+    
+    # Pick a random color from the array
+    RANDOM_COLOR=${COLORS[$RANDOM % ${#COLORS[@]}]}
+    
     # Call the function
     check_and_install_figlet
     # phrase
-    figlet "And Here We Go"
+    echo -e "${RANDOM_COLOR}"  # Apply color
+    figlet "And Here We Go"    # Print the figlet text
+    echo -e "\e[0m"            # Reset the color after figlet output
 }
+
 
 print_face() {
 
